@@ -1,0 +1,20 @@
+package Array;
+
+public class InitArray {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int[] array;//declara array nao identificado
+		array = new int[10];// cria objeto do array
+		
+		System.out.printf("%s%8s\n", "Index", "Value");// titulos da coluna
+		
+		//gera saida do valor de cada elemento do array
+		for(int counter =0; counter < array.length; counter++)
+			System.out.printf("%5d%6d\n", counter,array[counter]);
+	}//fim do main
+
+}// fim da class initaray
