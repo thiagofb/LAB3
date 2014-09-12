@@ -2,14 +2,17 @@ package Exercicio1;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-public class CalculadoraSimples extends JFrame {
+public class CalculadoraSimples extends JFrame implements ActionListener {
 	
 	
 	private JLabel label1,label2;
@@ -37,6 +40,7 @@ public class CalculadoraSimples extends JFrame {
 		JPanel painelPrincipal = new JPanel(new FlowLayout());
 		JPanel painel1 = new JPanel(new FlowLayout());
 		JPanel painel2 = new JPanel(new FlowLayout());
+		JPanel painelBotao = new JPanel(new FlowLayout());
 		
 		// painel 1
 		label1 = new JLabel("Digite o 1º numero: ");
@@ -52,10 +56,37 @@ public class CalculadoraSimples extends JFrame {
 		painel2.add(text2);
 		painelPrincipal.add(painel2);
 		
-		 // add os paineis no FRAME
-		this.add(painelPrincipal);
+		
 
+		// criando botao
+		botao = new JButton("Somar");
+		painelBotao.add(botao);
+		painelPrincipal.add(painelBotao, BorderLayout.SOUTH);
+		
+		// add os paineis no FRAME
+		this.add(painelPrincipal);
+		
+		// cria o evento(acão) para somar
+		botao.addActionListener(this);
 		
 		
 	}
+	// metodo para o botao somar
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		int n1,n2;
+		n1 = Integer.parseInt(text1.getText());
+		n2 = Integer.parseInt(text2.getText());
+		totalSoma = n1 + n2;
+		
+		JOptionPane.showMessageDialog(null, totalSoma);
+		
+	}
+	
+	
+	
+	
+	
+	
 }
